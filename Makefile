@@ -17,7 +17,8 @@
 #
 # Tools
 #
-TAP		:= ./node_modules/.bin/tap
+
+NODEUNIT  := ./node_modules/.bin/nodeunit
 
 #
 # Files
@@ -43,17 +44,17 @@ include ./tools/mk/Makefile.node_deps.defs
 # Repo-specific targets
 #
 .PHONY: all
-all: $(SMF_MANIFESTS) | $(TAP) $(REPO_DEPS)
+all: $(SMF_MANIFESTS) | $(NODEUNIT) $(REPO_DEPS)
 	$(NPM) rebuild
 
-$(TAP): | $(NPM_EXEC)
+$(NODEUNIT): | $(NPM_EXEC)
 	$(NPM) install
 
-CLEAN_FILES += $(TAP) ./node_modules/tap
+CLEAN_FILES += $(NODEUNIT) ./node_modules/tap
 
 .PHONY: test
-test: $(TAP)
-	TAP=1 $(TAP) test/*.test.js
+test: $(NODEUNIT)
+	$(NODEUNIT) test/wf-client.test.js
 
 include ./tools/mk/Makefile.deps
 include ./tools/mk/Makefile.node_prebuilt.targ

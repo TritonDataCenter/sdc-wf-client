@@ -10,7 +10,7 @@
     "bunyan": "0.8.0"
   },
   "devDependencies": {
-    "tap": "0.2"
+    "nodeunit": "0.7.4"
   },
   "scripts": {
     "start": "node ./server.js"
