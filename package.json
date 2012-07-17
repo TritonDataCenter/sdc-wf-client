@@ -1,5 +1,5 @@
 {
-  "name": "wfclient",
+  "name": "wf-client",
   "description": "Workflow API Client",
   "version": "1.0.0",
   "author": "Andres Rodriguez (andres@joyent.com)",
