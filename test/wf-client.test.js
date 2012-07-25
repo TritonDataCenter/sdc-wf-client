@@ -24,7 +24,8 @@ var config = {
     'workflows': ['say'],
     'url': 'http://10.99.99.15',
     'path': './test',
-    'log': log
+    'log': log,
+    'forceReplace': true
 };
 
 var wfapi;

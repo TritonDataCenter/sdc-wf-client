@@ -1,7 +1,7 @@
 {
   "name": "wf-client",
   "description": "Workflow API Client",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "author": "Andres Rodriguez (andres@joyent.com)",
   "private": true,
   "main": "./lib/wf-client.js",

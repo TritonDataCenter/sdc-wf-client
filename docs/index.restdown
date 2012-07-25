@@ -56,6 +56,7 @@ WfClient needs a configuration object with the following keys:
 || url || String || WFAPI location || Yes ||
 || path || String || Path to the workflow files directory || Yes ||
 || log || Bunyan Logger || Bunyan logger instance || Yes ||
+|| forceReplace || Boolean || Replace workflows if they exist || No ||
 || workflows || Array || List of workflow names to load || No ||
 
 In order to require and initialize a new WfClient, we would then do something
@@ -98,6 +99,13 @@ there is a say.js javascript file located at './test/say.js'.
 It is not entirely need to list all workflows that WfClient needs to be aware of
 from the config file. There are methods to add new workflows to WFAPI
 programatically.
+
+Note the configuration option called 'forceReplace'. It can be used as a
+'dev mode' flag where we are working on constant modifications to workflow files
+and would like to replace the workflows on WFAPI automatically on each
+application restart. This option is useful to let wf-client take care of
+duplicate workflows on WFAPI and replace them every time .initWorkflows() is
+called.
 
 
 # WFClient API
