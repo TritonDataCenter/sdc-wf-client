@@ -32,6 +32,11 @@ var wfapi;
 var wfUuid;
 var jobUuid;
 
+var INFO = {
+	progress: 10,
+	message: 'Under Fire Do not Stop'
+};
+
 
 exports.setUp = function(callback) {
 	wfapi = new WfClient(config);
@@ -92,6 +97,23 @@ exports.testGetJob = function (t) {
 	wfapi.getJob(jobUuid, function (err, job) {
 		assert.ifError(err);
 		t.ok(job);
+		t.done();
+	});
+};
+
+
+exports.testPostJobInfo = function (t) {
+	wfapi.postJobInfo(jobUuid, INFO, function (err) {
+		assert.ifError(err);
+		t.done();
+	});
+};
+
+
+exports.testGetJobInfo = function (t) {
+	wfapi.getJobInfo(jobUuid, function (err, info) {
+		assert.ifError(err);
+		t.equal(info[0].progress, INFO.progress);
 		t.done();
 	});
 };
