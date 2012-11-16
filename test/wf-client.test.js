@@ -11,13 +11,13 @@ var assert = require('assert');
 
 
 var log = new Logger({
-  name: 'wf-client',
-  level: 'info',
-  serializers: {
-      err: Logger.stdSerializers.err,
-      req: Logger.stdSerializers.req,
-      res: restify.bunyan.serializers.response
-  }
+    name: 'wf-client',
+    level: 'info',
+    serializers: {
+        err: Logger.stdSerializers.err,
+        req: Logger.stdSerializers.req,
+        res: restify.bunyan.serializers.res
+    }
 });
 
 var config = {
