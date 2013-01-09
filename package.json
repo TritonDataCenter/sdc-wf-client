@@ -6,7 +6,7 @@
   "private": true,
   "main": "./lib/wf-client.js",
   "dependencies": {
-    "restify": "git://github.com/mcavage/node-restify.git#fcabbd1",
+    "restify": "git://github.com/mcavage/node-restify.git#539470b",
     "node-uuid": "1.3.3",
     "bunyan": "0.14.5",
     "async": "0.1.22"
