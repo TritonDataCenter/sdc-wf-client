@@ -32,7 +32,7 @@ JSSTYLE_FLAGS    = -o indent=4,doxygen,unparenthesized-return=0
 REPO_MODULES	 = src/node-dummy
 
 
-NODE_PREBUILT_VERSION=v0.6.19
+NODE_PREBUILT_VERSION=v0.8.14
 NODE_PREBUILT_TAG=zone
 
 
