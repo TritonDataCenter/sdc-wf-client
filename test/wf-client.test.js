@@ -25,7 +25,8 @@ var config = {
     'url': 'http://10.99.99.15',
     'path': './test',
     'log': log,
-    'forceReplace': true
+    'forceReplace': true,
+    'agent': false
 };
 
 var wfapi;
