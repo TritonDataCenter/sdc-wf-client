@@ -38,6 +38,8 @@ var INFO = {
 	message: 'Under Fire Do not Stop'
 };
 
+var VERSION = '1.0.0';
+
 
 exports.setUp = function(callback) {
 	wfapi = new WfClient(config);
@@ -58,7 +60,7 @@ exports.testLoadWorkflow = function (t) {
 
 
 exports.testFindWorkflow = function (t) {
-	wfapi.findWorkflow('foobar', function (err, wf) {
+	wfapi.findWorkflow('foobar-' + VERSION, function (err, wf) {
 		assert.ifError(err);
 		t.ok(wf);
 		t.ok(wf.uuid);
