@@ -21,12 +21,12 @@ var log = new Logger({
 });
 
 var config = {
-    'workflows': ['say'],
-    'url': 'http://10.99.99.15',
-    'path': './test',
-    'log': log,
-    'forceReplace': true,
-    'agent': false
+    workflows: ['say'],
+    url: 'http://10.99.99.19',
+    path: './test',
+    log: log,
+    forceReplace: true,
+    agent: false
 };
 
 var wfapi;
