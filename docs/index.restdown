@@ -173,7 +173,9 @@ Finds a workflow by uuid.
 
 Queues a new job for the given workflow. Params is the object that is going to
 be posted as job parameters. Note also that the workflow name is the fileName
-that WfClient already associated to a workflow object internally.
+that WfClient already associated to a workflow object internally. fileName can
+be omitted if the workflow uuid is given as params.workflow, e.g.
+createJob(params, callback).
 
 || **Name** || **Type** || **Description** ||
 || fileName || String || Filename/alias of the workflow ||

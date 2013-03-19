@@ -96,6 +96,23 @@ exports.testCreateJob = function (t) {
 };
 
 
+exports.testCreateJobUUID = function (t) {
+	var params = {
+		name: 'Tester',
+		target: 'say2',
+		task: 'say',
+		workflow: wfUuid
+	};
+
+	wfapi.createJob(params, function (err, job) {
+		assert.ifError(err);
+		t.ok(job);
+		t.ok(job.uuid);
+		t.done();
+	});
+};
+
+
 exports.testGetJob = function (t) {
 	wfapi.getJob(jobUuid, function (err, job) {
 		assert.ifError(err);
