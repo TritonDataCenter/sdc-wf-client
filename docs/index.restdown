@@ -169,18 +169,27 @@ Finds a workflow by uuid.
 || callback || Function || fn(err, workflow) ||
 
 
-## createJob(fileName, params, callback)
+## createJob(fileName, params, [headers], callback)
 
 Queues a new job for the given workflow. Params is the object that is going to
 be posted as job parameters. Note also that the workflow name is the fileName
 that WfClient already associated to a workflow object internally. fileName can
-be omitted if the workflow uuid is given as params.workflow, e.g.
-createJob(params, callback).
+be omitted if the workflow uuid is given as params.workflow. This means that the
+function takes the following two forms:
+
+ * createJob(fileName, params, headers, cb)
+ * createJob(params, headers, cb)
+
+Headers is always an optional argument. If headers are specified then WfClient
+will add them to the request headers. This is useful for clients that need to
+pass specific information across different APIs in order to track requests by
+any given identifier.
 
 || **Name** || **Type** || **Description** ||
 || fileName || String || Filename/alias of the workflow ||
 || params || Object || Job parameters ||
 || params.target || String || Job target. **Required** ||
+|| headers || Object || Additional request headers ||
 || callback || Function || fn(err, job) ||
 
 **NOTE REGARDING JOB TARGET** Job target is a way for WFAPI to detect that two
