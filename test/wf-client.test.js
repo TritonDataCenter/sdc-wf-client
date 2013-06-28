@@ -120,9 +120,11 @@ exports.testCreateJobWithRequestId = function (t) {
 		task: 'say',
 		workflow: wfUuid
 	};
-	var headers = { 'x-request-id': 'f923df69-0e55-4c1a-b31b-0da8183a5f81' };
+	var options = {
+		headers: { 'x-request-id': 'f923df69-0e55-4c1a-b31b-0da8183a5f81' }
+    };
 
-	wfapi.createJob(params, headers, function (err, job) {
+	wfapi.createJob(params, options, function (err, job) {
 		assert.ifError(err);
 		t.ok(job);
 		t.ok(job.uuid);
