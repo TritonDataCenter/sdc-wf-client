@@ -56,7 +56,8 @@ WfClient needs a configuration object with the following keys:
 || url || String || WFAPI location || Yes ||
 || path || String || Path to the workflow files directory || Yes ||
 || log || Bunyan Logger || Bunyan logger instance || Yes ||
-|| forceReplace || Boolean || Replace workflows if they exist || No ||
+|| forceReplace || Boolean || Replace workflows if they exist. Defaults to false || No ||
+|| forceMd5Check || Boolean || Replace workflows if the MD5 hashes of the contents for the local and remote versions of the files don't match. Defaults to false || No ||
 || workflows || Array || List of workflow names to load || No ||
 
 In order to require and initialize a new WfClient, we would then do something

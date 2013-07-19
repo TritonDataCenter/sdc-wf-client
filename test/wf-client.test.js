@@ -25,7 +25,8 @@ var config = {
     url: 'http://10.99.99.19',
     path: './test',
     log: log,
-    forceReplace: true,
+    forceReplace: false,
+    forceMd5Check: true,
     agent: false
 };
 
