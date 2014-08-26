@@ -3,7 +3,6 @@
   "description": "Workflow API Client",
   "version": "0.1.1",
   "author": "Andres Rodriguez (andres@joyent.com)",
-  "private": true,
   "main": "./lib/wf-client.js",
   "dependencies": {
     "assert-plus": "0.1.2",
