@@ -41,141 +41,140 @@ var wfUuid;
 var jobUuid;
 
 var INFO = {
-	progress: 10,
-	message: 'Under Fire Do not Stop'
+    progress: 10,
+    message: 'Under Fire Do not Stop'
 };
 
 var VERSION = '1.0.0';
 
 
-exports.setUp = function(callback) {
-	wfapi = new WfClient(config);
-	wfapi.initWorkflows(function (err) {
+exports.setUp = function (callback) {
+    wfapi = new WfClient(config);
+    wfapi.initWorkflows(function (err) {
         assert.ifError(err);
-		callback();
-	});
+        callback();
+    });
 };
 
 
 exports.testLoadWorkflow = function (t) {
-	wfapi.loadWorkflow('foobar', function (err) {
-		assert.ifError(err);
-		t.ok(true);
-		t.done();
-	});
+    wfapi.loadWorkflow('foobar', function (err) {
+        assert.ifError(err);
+        t.ok(true);
+        t.done();
+    });
 };
 
 
 exports.testFindWorkflow = function (t) {
-	wfapi.findWorkflow('foobar-' + VERSION, function (err, wf) {
-		assert.ifError(err);
-		t.ok(wf);
-		t.ok(wf.uuid);
-		wfUuid = wf.uuid;
-		t.done();
-	});
+    wfapi.findWorkflow('foobar-' + VERSION, function (err, wf) {
+        assert.ifError(err);
+        t.ok(wf);
+        t.ok(wf.uuid);
+        wfUuid = wf.uuid;
+        t.done();
+    });
 };
 
 
 exports.testGetWorkflow = function (t) {
-	wfapi.getWorkflow(wfUuid, function (err, wf) {
-		assert.ifError(err);
-		t.ok(wf);
-		t.done();
-	});
+    wfapi.getWorkflow(wfUuid, function (err, wf) {
+        assert.ifError(err);
+        t.ok(wf);
+        t.done();
+    });
 };
 
 
 exports.testCreateJob = function (t) {
-	var params = {
-		name: 'Tester',
-		target: 'say',
-		task: 'say'
-	};
+    var params = {
+        name: 'Tester',
+        target: 'say',
+        task: 'say'
+    };
 
-	wfapi.createJob('say', params, function (err, job) {
-		assert.ifError(err);
-		t.ok(job);
-		t.ok(job.uuid);
-		jobUuid = job.uuid;
-		t.done();
-	});
+    wfapi.createJob('say', params, function (err, job) {
+        assert.ifError(err);
+        t.ok(job);
+        t.ok(job.uuid);
+        jobUuid = job.uuid;
+        t.done();
+    });
 };
 
 
 exports.testCreateJobUUID = function (t) {
-	var params = {
-		name: 'Tester',
-		target: 'say2',
-		task: 'say',
-		workflow: wfUuid
-	};
+    var params = {
+        name: 'Tester',
+        target: 'say2',
+        task: 'say',
+        workflow: wfUuid
+    };
 
-	wfapi.createJob(params, function (err, job) {
-		assert.ifError(err);
-		t.ok(job);
-		t.ok(job.uuid);
-		t.done();
-	});
+    wfapi.createJob(params, function (err, job) {
+        assert.ifError(err);
+        t.ok(job);
+        t.ok(job.uuid);
+        t.done();
+    });
 };
 
 
 exports.testCreateJobWithRequestId = function (t) {
-	var params = {
-		name: 'Tester',
-		target: 'say-req-id',
-		task: 'say',
-		workflow: wfUuid
-	};
-	var options = {
-		headers: { 'x-request-id': 'f923df69-0e55-4c1a-b31b-0da8183a5f81' }
+    var params = {
+        name: 'Tester',
+        target: 'say-req-id',
+        task: 'say',
+        workflow: wfUuid
+    };
+    var options = {
+        headers: { 'x-request-id': 'f923df69-0e55-4c1a-b31b-0da8183a5f81' }
     };
 
-	wfapi.createJob(params, options, function (err, job) {
-		assert.ifError(err);
-		t.ok(job);
-		t.ok(job.uuid);
-		t.done();
-	});
+    wfapi.createJob(params, options, function (err, job) {
+        assert.ifError(err);
+        t.ok(job);
+        t.ok(job.uuid);
+        t.done();
+    });
 };
 
 
 exports.testGetJob = function (t) {
-	wfapi.getJob(jobUuid, function (err, job) {
-		assert.ifError(err);
-		t.ok(job);
-		t.done();
-	});
+    wfapi.getJob(jobUuid, function (err, job) {
+        assert.ifError(err);
+        t.ok(job);
+        t.done();
+    });
 };
 
 
 exports.testPostJobInfo = function (t) {
-	wfapi.postJobInfo(jobUuid, INFO, function (err) {
-		assert.ifError(err);
-		t.done();
-	});
+    wfapi.postJobInfo(jobUuid, INFO, function (err) {
+        assert.ifError(err);
+        t.done();
+    });
 };
 
 
 exports.testGetJobInfo = function (t) {
-	wfapi.getJobInfo(jobUuid, function (err, info) {
-		assert.ifError(err);
-		t.equal(info[0].progress, INFO.progress);
-		t.done();
-	});
+    wfapi.getJobInfo(jobUuid, function (err, info) {
+        assert.ifError(err);
+        t.equal(info[0].progress, INFO.progress);
+        t.done();
+    });
 };
 
 
 exports.testListJobs = function (t) {
-	var query = {
-		task: 'say'
-	};
+    var query = {
+        task: 'say'
+    };
 
-	wfapi.listJobs(query, function (err, jobs) {
-		assert.ifError(err);
-		t.ok(jobs);
-		t.ok(jobs.length);
-		t.done();
-	});
+    wfapi.listJobs(query, function (err, jobs) {
+        assert.ifError(err);
+        t.ok(jobs);
+        t.ok(jobs.length);
+        t.done();
+    });
 };
-

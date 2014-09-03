@@ -15,13 +15,13 @@
 var VERSION = '1.0.0';
 
 function hi(job, cb) {
-	var name = job.params.name || 'Stranger';
+    var name = job.params.name || 'Stranger';
 
-	return cb(null, 'Hi there, ' + name);
+    return cb(null, 'Hi there, ' + name);
 }
 
 function hello(job, cb) {
-	return cb(null, 'Hello again');
+    return cb(null, 'Hello again');
 }
 
 var workflow = module.exports = {

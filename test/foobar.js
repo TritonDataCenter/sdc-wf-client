@@ -15,7 +15,7 @@
 var VERSION = '1.0.0';
 
 function foo(job, cb) {
-	return cb(null, 'Bar');
+    return cb(null, 'Bar');
 }
 
 var workflow = module.exports = {
