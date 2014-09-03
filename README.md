@@ -36,7 +36,7 @@ unit test is provided for more information about how to load workflows and how
 to create jobs for them.
 
     # To test, get the source.
-    git clone git@git.joyent.com:wf-client.git
+    git clone git@github.com:joyent/sdc-wf-client.git
     cd wf-client/
     make test
 
