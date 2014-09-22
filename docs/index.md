@@ -1,7 +1,7 @@
 ---
 title: Workflow API Client
 apisections: Workflows
-markdown2extras: wiki-tables, code-friendly
+markdown2extras: tables, code-friendly
 ---
 <!--
     This Source Code Form is subject to the terms of the Mozilla Public
@@ -53,13 +53,14 @@ to create jobs for them.
 
 WfClient needs a configuration object with the following keys:
 
-|| **Name** || **Type** || **Description** || **Required** ||
-|| url || String || WFAPI location || Yes ||
-|| path || String || Path to the workflow files directory || Yes ||
-|| log || Bunyan Logger || Bunyan logger instance || Yes ||
-|| forceReplace || Boolean || Replace workflows if they exist. Defaults to false || No ||
-|| forceMd5Check || Boolean || Replace workflows if the MD5 hashes of the contents for the local and remote versions of the files don't match. Defaults to false || No ||
-|| workflows || Array || List of workflow names to load || No ||
+| Name          | Type          | Description                                                                                                                       | Required |
+| ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| url           | String        | WFAPI location                                                                                                                    | Yes      |
+| path          | String        | Path to the workflow files directory                                                                                              | Yes      |
+| log           | Bunyan Logger | Bunyan logger instance                                                                                                            | Yes      |
+| forceReplace  | Boolean       | Replace workflows if they exist. Defaults to false                                                                                | No       |
+| forceMd5Check | Boolean       | Replace workflows if the MD5 hashes of the contents for the local and remote versions of the files don't match. Defaults to false | No       |
+| workflows     | Array         | List of workflow names to load                                                                                                    | No       |
 
 In order to require and initialize a new WfClient, we would then do something
 along these lines:
@@ -120,8 +121,9 @@ configuration object as the 'workflows' key. What this function does in the
 background is to call wf-client.loadWorkflow for each of the workflows
 available, so it is more of a convenience method than anything.
 
-|| **Name** || **Type** || **Description** ||
-|| callback || Function || fn(err) ||
+| Name     | Type     | Description |
+| -------- | -------- | ----------- |
+| callback | Function | fn(err)     |
 
 
 ## loadWorkflow(fileName, callback)
@@ -144,9 +146,10 @@ only need to know about its fileName and this is how they should refer to them.
 In our example we will want to load 'say' and not 'say-1.0.0' since say.js is
 the workflow file name.
 
-|| **Name** || **Type** || **Description** ||
-|| fileName || String || Filename/alias of the workflow ||
-|| callback || Function || fn(err) ||
+| Name     | Type     | Description                    |
+| -------- | -------- | ------------------------------ |
+| fileName | String   | Filename/alias of the workflow |
+| callback | Function | fn(err)                        |
 
 
 ## findWorkflow(name, callback)
@@ -157,18 +160,20 @@ that for the *say* workflow its name would be 'say-1.0.0'. This method
 is a convenience method since WFAPI doesn't provide a search by name
 (and/or version) at the moment.
 
-|| **Name** || **Type** || **Description** ||
-|| name || String || Name of the workflow ||
-|| callback || Function || fn(err, workflow) ||
+| Name     | Type     | Description          |
+| -------- | -------- | -------------------- |
+| name     | String   | Name of the workflow |
+| callback | Function | fn(err, workflow)    |
 
 
 ## getWorkflow(uuid, callback)
 
 Finds a workflow by uuid.
 
-|| **Name** || **Type** || **Description** ||
-|| uuid || UUID || UUID of the workflow ||
-|| callback || Function || fn(err, workflow) ||
+| Name     | Type     | Description          |
+| -------- | -------- | -------------------- |
+| uuid     | UUID     | UUID of the workflow |
+| callback | Function | fn(err, workflow)    |
 
 
 ## createJob(fileName, params, [options], callback)
@@ -189,13 +194,14 @@ for clients that need to pass specific information across different APIs in orde
 to track requests by any given identifier. Only options.headers is a supported
 option at the moment
 
-|| **Name** || **Type** || **Description** ||
-|| fileName || String || Filename/alias of the workflow ||
-|| params || Object || Job parameters ||
-|| params.target || String || Job target. **Required** ||
-|| options || Object || Additional options for the job ||
-|| options.headers || Object || Additional request headers to pass ||
-|| callback || Function || fn(err, job) ||
+| Name            | Type     | Description                        |
+| --------------- | -------- | ---------------------------------- |
+| fileName        | String   | Filename/alias of the workflow     |
+| params          | Object   | Job parameters                     |
+| params.target   | String   | Job target. **Required**           |
+| options         | Object   | Additional options for the job     |
+| options.headers | Object   | Additional request headers to pass |
+| callback        | Function | fn(err, job)                       |
 
 **NOTE REGARDING JOB TARGET** Job target is a way for WFAPI to detect that two
 jobs represent the same 'request'. One can use target as a way to identify
@@ -211,9 +217,10 @@ workflow a UUID or a timestamp should help identifying them by target.
 
 Finds a job by uuid.
 
-|| **Name** || **Type** || **Description** ||
-|| uuid || UUID || UUID of the job ||
-|| callback || Function || fn(err, job) ||
+| Name     | Type     | Description     |
+| -------- | -------- | --------------- |
+| uuid     | UUID     | UUID of the job |
+| callback | Function | fn(err, job)    |
 
 
 ## listJobs(query, callback)
@@ -235,6 +242,7 @@ the following function call:
 
 	wf.listJobs( { task: 'cleanup' }, function (err, jobs) {});
 
-|| **Name** || **Type** || **Description** ||
-|| query || Object || Query options ||
-|| callback || Function || fn(err, jobs) ||
+| Name     | Type     | Description   |
+| -------- | -------- | ------------- |
+| query    | Object   | Query options |
+| callback | Function | fn(err, jobs) |
