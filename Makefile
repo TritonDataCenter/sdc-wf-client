@@ -37,22 +37,15 @@ JSL_CONF_NODE	 = tools/jsl.node.conf
 JSL_FILES_NODE   = $(JS_FILES)
 JSSTYLE_FILES	 = $(JS_FILES)
 JSSTYLE_FLAGS    = -o indent=4,doxygen,unparenthesized-return=0
-REPO_MODULES	 = src/node-dummy
-
-
-NODE_PREBUILT_VERSION=v0.8.14
-NODE_PREBUILT_TAG=zone
-
+NPM := npm
 
 include ./tools/mk/Makefile.defs
-include ./tools/mk/Makefile.node_prebuilt.defs
-include ./tools/mk/Makefile.node_deps.defs
 
 #
 # Repo-specific targets
 #
 .PHONY: all
-all: $(SMF_MANIFESTS) | $(NODEUNIT) $(REPO_DEPS)
+all: $(SMF_MANIFESTS) | $(NODEUNIT)
 	$(NPM) rebuild
 
 $(NODEUNIT): | $(NPM_EXEC)
@@ -65,6 +58,4 @@ test: $(NODEUNIT)
 	$(NODEUNIT) test/wf-client.test.js
 
 include ./tools/mk/Makefile.deps
-include ./tools/mk/Makefile.node_prebuilt.targ
-include ./tools/mk/Makefile.node_deps.targ
 include ./tools/mk/Makefile.targ
