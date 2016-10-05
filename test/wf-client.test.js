@@ -5,30 +5,27 @@
  */
 
 /*
- * Copyright (c) 2014, Joyent, Inc.
+ * Copyright 2016 Joyent, Inc.
  */
 
-/* Test the WfClient */
+var assert = require('assert');
+var bunyan = require('bunyan');
+var restifyClients = require('restify-clients');
 
 var WfClient = require('../lib/wf-client');
-var Logger = require('bunyan');
-var restify = require('restify');
-var assert = require('assert');
 
 
-var log = new Logger({
+var log = bunyan.createLogger({
     name: 'wf-client',
     level: 'info',
-    serializers: {
-        err: Logger.stdSerializers.err,
-        req: Logger.stdSerializers.req,
-        res: restify.bunyan.serializers.res
-    }
+    serializers: restifyClients.bunyan.serializers
 });
+
+var workflowUrl = 'http://' + (process.env.WORKFLOW_IP || '10.99.99.19');
 
 var config = {
     workflows: ['say'],
-    url: 'http://10.99.99.19',
+    url: workflowUrl,
     path: './test',
     log: log,
     forceReplace: false,

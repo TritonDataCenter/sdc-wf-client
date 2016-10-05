@@ -1,48 +1,55 @@
-<!--
-    This Source Code Form is subject to the terms of the Mozilla Public
-    License, v. 2.0. If a copy of the MPL was not distributed with this
-    file, You can obtain one at http://mozilla.org/MPL/2.0/.
--->
-
-<!--
-    Copyright (c) 2014, Joyent, Inc.
--->
-
 # sdc-wf-client
 
-This library allows Workflow API clients to manage their own workflows and jobs.
-It is a simple abstraction of the SDC internal Workflow API.
+This repository is part of the Joyent Triton project. See the [contribution
+guidelines](https://github.com/joyent/triton/blob/master/CONTRIBUTING.md) --
+*Triton does not use GitHub PRs* -- and general documentation at the main
+[Triton project](https://github.com/joyent/triton) page.
 
-This repository is part of the Joyent SmartDataCenter project (SDC).  For
-contribution guidelines, issues, and general documentation, visit the main
-[SDC](http://github.com/joyent/sdc) project page.
+This is a Node.js client library for the Triton core Workflow API service.
 
-# Features
 
-* Load workflow files from disk into WFAPI
-* Find a workflow
-* Create jobs
-* Find jobs
+## Documentation
 
-The distinctive feature that this library provides is being able to drop in any
-workflow *compatible* javascript file that can be programatically loaded into
-WFAPI, so application developers can write their own custom workflows and use
-WfClient to create them with a single function call.
+See [the wf-client docs here](./docs/index.md).
 
-# Getting Started
 
-All you need to use (and test) WfClient is a running WFAPI instance. A sample
-unit test is provided for more information about how to load workflows and how
-to create jobs for them.
+## Testing
 
-    # To test, get the source.
-    git clone git@github.com:joyent/sdc-wf-client.git
-    cd wf-client/
     make test
 
-	# To use as a module, add the package to your package.json
-    ...
-        "wf-client": "git+ssh://git@github.com:joyent/sdc-wf-client.git",
-    ...
+Currently this assumes a Workflow API endpoint at <https://10.99.99.19>, the
+common IP for a [CoaL setup](https://github.com/joyent/triton#getting-started).
+To test a workflow API at a different IP run:
 
-    npm install
+    make test WORKFLOW_IP=...
+
+
+## Development
+
+Before commit, ensure that the following checks are clean:
+
+    make prepush
+
+Also see the note at the top that cr.joyent.us is used for code review for
+this repo.
+
+
+## Releases
+
+Changes with possible user impact should:
+
+1. Add a note to the changelog (CHANGES.md).
+2. Bump the version in package.json and CHANGES.md.
+3. Once merged to master, the new version should be tagged and published to npm
+   via:
+
+        make cutarelease
+
+   To list to npm accounts that have publish access:
+
+        npm owner ls wf-client
+
+The desire is that users of this package use published versions in their
+package.json `dependencies`, rather than depending on git shas.
+
+

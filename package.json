@@ -1,20 +1,18 @@
 {
   "name": "wf-client",
-  "description": "Workflow API Client",
-  "version": "0.1.1",
-  "author": "Andres Rodriguez (andres@joyent.com)",
+  "description": "a node.js client for the Triton core Workflow API service",
+  "version": "0.2.0",
+  "author": "Joyent (joyent.com)",
   "main": "./lib/wf-client.js",
   "dependencies": {
-    "assert-plus": "~0.1.5",
-    "restify": "^2.8.4",
-    "node-uuid": "1.3.3",
-    "bunyan": "^1.3.2",
+    "assert-plus": "~1.0.0",
     "async": "~0.9.0",
-    "backoff": "^2.4.1"
+    "backoff": "^2.4.1",
+    "bunyan": "^1.8.1",
+    "restify-clients": "^1.3.1"
   },
   "devDependencies": {
-    "nodeunit": "0.7.4"
+    "nodeunit": "^0.10.2"
   },
-  "scripts": {},
   "license": "MPL-2.0"
 }
