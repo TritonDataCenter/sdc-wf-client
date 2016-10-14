@@ -9,7 +9,8 @@
     "async": "~0.9.0",
     "backoff": "^2.4.1",
     "bunyan": "^1.8.1",
-    "restify-clients": "^1.6.0"
+    "restify-clients": "git+https://github.com/joshwilsdon/restify-clients.git#cls",
+    "triton-tracer": "git+https://github.com/joshwilsdon/triton-tracer.git#cls"
   },
   "devDependencies": {
     "nodeunit": "^0.10.2"
