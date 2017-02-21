@@ -100,35 +100,16 @@ exports.testCreateJob = function (t) {
 };
 
 
-exports.testCreateJobUUID = function (t) {
-    var params = {
-        name: 'Tester',
-        target: 'say2',
-        task: 'say',
-        workflow: wfUuid
-    };
-
-    wfapi.createJob(params, function (err, job) {
-        assert.ifError(err);
-        t.ok(job);
-        t.ok(job.uuid);
-        t.done();
-    });
-};
-
-
 exports.testCreateJobWithRequestId = function (t) {
     var params = {
-        name: 'Tester',
         target: 'say-req-id',
-        task: 'say',
-        workflow: wfUuid
+        task: 'say'
     };
     var options = {
         headers: { 'x-request-id': 'f923df69-0e55-4c1a-b31b-0da8183a5f81' }
     };
 
-    wfapi.createJob(params, options, function (err, job) {
+    wfapi.createJob('say', params, options, function (err, job) {
         assert.ifError(err);
         t.ok(job);
         t.ok(job.uuid);

@@ -1,7 +1,7 @@
 {
   "name": "wf-client",
   "description": "a node.js client for the Triton core Workflow API service",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "author": "Joyent (joyent.com)",
   "main": "./lib/wf-client.js",
   "dependencies": {

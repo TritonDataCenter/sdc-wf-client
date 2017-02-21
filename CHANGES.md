@@ -1,6 +1,23 @@
 # sdc-wf-client changelog
 
-## not yet released
+## 0.3.0
+
+- Cleaned up createJob signature and made WfClient constructor to use
+  assert module instead of custom assertions.
+
+  The `createJob` method signature can be one of the following:
+
+      createJob(wf, params, options, cb)
+      createJob(wf, params, cb)
+
+  The following options have been removed:
+
+      createJob(params, options, cb)
+      createJob(params, cb)
+
+  Both of these cases assumed that there would be a `params.workflow` member
+  containing the workflow name, it's to say, exactly the value we expect for
+  `wf` on the supported methods.
 
 ## 0.2.1
 
