@@ -1,5 +1,10 @@
 # sdc-wf-client changelog
 
+## not yet released
+
+(nothing yet)
+
+
 ## 0.3.0
 
 - Cleaned up createJob signature and made WfClient constructor to use
