@@ -4,6 +4,10 @@
 
 (nothing yet)
 
+## 0.3.1
+
+- TRITON-635 restify-clients usage has been updated to use the new 'contentMd5'
+  option to avoid cross-node version BadDigest errors.
 
 ## 0.3.0
 

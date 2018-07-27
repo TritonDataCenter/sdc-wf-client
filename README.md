@@ -17,7 +17,7 @@ See [the wf-client docs here](./docs/index.md).
 
     make test
 
-Currently this assumes a Workflow API endpoint at <https://10.99.99.19>, the
+Currently this assumes a Workflow API endpoint at <http://10.99.99.19>, the
 common IP for a [CoaL setup](https://github.com/joyent/triton#getting-started).
 To test a workflow API at a different IP run:
 
