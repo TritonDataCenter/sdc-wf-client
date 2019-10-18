@@ -1,8 +1,8 @@
 # sdc-wf-client
 
 This repository is part of the Joyent Triton project. See the [contribution
-guidelines](https://github.com/joyent/triton/blob/master/CONTRIBUTING.md) --
-*Triton does not use GitHub PRs* -- and general documentation at the main
+guidelines](https://github.com/joyent/triton/blob/master/CONTRIBUTING.md)
+and general documentation at the main
 [Triton project](https://github.com/joyent/triton) page.
 
 This is a Node.js client library for the Triton core Workflow API service.
@@ -30,9 +30,6 @@ Before commit, ensure that the following checks are clean:
 
     make prepush
 
-Also see the note at the top that cr.joyent.us is used for code review for
-this repo.
-
 
 ## Releases
 
@@ -51,5 +48,3 @@ Changes with possible user impact should:
 
 The desire is that users of this package use published versions in their
 package.json `dependencies`, rather than depending on git shas.
-
-
